@@ -37,8 +37,8 @@ syntax keyword vdmNiceFunction lambda conceal cchar=λ
 
 
 
-syntax match vdmNiceStatement "\<\(for *all\|for\)\>" conceal cchar=∀
 syntax keyword vdmNiceStatement forall conceal cchar=∀
+syntax keyword vdmNiceStatement exists conceal cchar=∃
 syntax keyword vdmNiceStatement in conceal cchar=∈
 syntax match vdmNiceStatement "not in" conceal cchar=∉
 
