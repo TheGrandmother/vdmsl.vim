@@ -25,6 +25,7 @@ syntax match vdmNiceOperator '|->' conceal cchar=↦
 syntax match vdmNiceOperator '<-|' conceal cchar=↤
 syntax match vdmNiceOperator "<=" conceal cchar=≤
 syntax match vdmNiceOperator ">=" conceal cchar=≥
+syntax match vdmNiceOperator "&" conceal cchar=∋
 
 syntax keyword vdmNiceFunction not conceal cchar=¬
 syntax keyword vdmNiceFunction and conceal cchar=∧
