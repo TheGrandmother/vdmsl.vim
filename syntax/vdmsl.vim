@@ -46,7 +46,8 @@ syn keyword     vdmFunction     dom rng munion merge comp inverse
 syn match       vdmDelimiter    "(\|)\|\[\|\]\|{\|}\|,"
 
 " Operators
-syn match       vdmOperator     "\.\|:\|::\|->\|+>\|==\|=>\|<=>\|=\|<>\|+\|-\|*\|/\|*\*\|<\|>\|<=\|>=\|&\||\|\^\|\\\|++\||->\|<:\|<-:\|:>\|:->\|.#\|:-\|==>\|:=\|||"
+syn match       vdmOperator     "\.\|:\|::\|<=>\|->\|+>\|==\|=>\|=\|<>\|+\|-\|*\|/\|*\*\|<\|>\|&\||\|\^\|\\\|++\||->\|<:\|<-:\|:>\|:->\|.#\|:-\|==>\|:=\|||"
+syn match       vdmCompareOperators "<=\|>="
 
 " Strings and constants
 syn match       vdmNumber       "\<[0-9]\+\>"
@@ -91,6 +92,7 @@ syn match       vdmLineComment  "--.*"
 
 
 hi def  link    vdmOperator     Operator
+hi def  link    vdmCompareOperators     Operator
 hi def  link    vdmPart         PreProc
 hi def  link    vdmType         Type
 hi def  link    vdmStatement    Statement

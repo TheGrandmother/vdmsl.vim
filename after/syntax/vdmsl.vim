@@ -7,25 +7,32 @@ if !get(g:, 'vdm_unicode_conceal_enable', 0) || !has('conceal') || &encoding !=?
 	finish
 endif
 
+"syntax match vdmNiceOperator '=>' conceal cchar=⇒
+"	\ containedin=vdmOperator
+"syntax match vdmNiceOperator '<=' conceal cchar=⇐
+
 " vim: set fenc=utf-8:
 syntax match vdmNiceOperator '->' conceal cchar=→
 	\ containedin=vdmOperator
 syntax match vdmNiceOperator '<-' conceal cchar=←
 	\ containedin=vdmOperator
-syntax match vdmNiceOperator '=>' conceal cchar=⇒
+syntax match vdmNiceOperator '=>' conceal cchar=
 	\ containedin=vdmOperator
-syntax match vdmNiceOperator "<=" conceal cchar=⇐
+syntax match vdmNiceOperator '<=\ze[^>]' conceal cchar=
 	\ containedin=vdmOperator
 syntax match vdmNiceOperator '::' conceal cchar=∷
 	\ containedin=vdmOperator
 syntax match vdmNiceOperator '==' conceal cchar=≡
 syntax match vdmNiceOperator '<>' conceal cchar=≠
-syntax match vdmNiceOperator '<=>' conceal cchar=⇔
+" syntax match vdmNiceOperator '<=>' conceal cchar=
 syntax match vdmNiceOperator '|->' conceal cchar=↦
 syntax match vdmNiceOperator '<-|' conceal cchar=↤
-syntax match vdmNiceOperator "<=" conceal cchar=≤
-syntax match vdmNiceOperator ">=" conceal cchar=≥
-syntax match vdmNiceOperator "&" conceal cchar=∋
+syntax match vdmNiceOperator '<=\ze[^>]' conceal cchar=≤
+	\ containedin=vdmCompareOperators
+syntax match vdmNiceOperator '>=' conceal cchar=≥
+	\ containedin=vdmCompareOperators
+"syntax match vdmNiceOperator '&' conceal cchar=∋•
+syntax match vdmNiceOperator '&' conceal cchar=•
 
 syntax keyword vdmNiceFunction not conceal cchar=¬
 syntax keyword vdmNiceFunction and conceal cchar=∧
@@ -36,11 +43,14 @@ syntax keyword vdmNiceFunction subset conceal cchar=⊆
 syntax keyword vdmNiceFunction psubset conceal cchar=⊂
 syntax keyword vdmNiceFunction lambda conceal cchar=λ
 
-
-
 syntax keyword vdmNiceStatement forall conceal cchar=∀
+syntax match vdmNiceStatement "not exists" conceal cchar=∄
 syntax keyword vdmNiceStatement exists conceal cchar=∃
-syntax keyword vdmNiceStatement in conceal cchar=∈
+syntax match vdmNiceStatement "not in set" conceal cchar=∉
+syntax match vdmNiceStatement "not in seq" conceal cchar=∉
+syntax match vdmNiceStatement "not in seq1" conceal cchar=∉
+syntax match vdmNiceStatement "in\s\+se\(t|\(q1\?\)\)" conceal cchar=∈
+" syntax keyword vdmNiceStatement in conceal cchar=∈
 syntax match vdmNiceStatement "not in" conceal cchar=∉
 
 " if !get(g:, 'purescript_unicode_conceal_disable_common', 1)
