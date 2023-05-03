@@ -44,14 +44,18 @@ syntax keyword vdmNiceFunction psubset conceal cchar=⊂
 syntax keyword vdmNiceFunction lambda conceal cchar=λ
 
 syntax keyword vdmNiceStatement forall conceal cchar=∀
-syntax match vdmNiceStatement "not exists" conceal cchar=∄
+"syntax match vdmNiceStatement "not exists" conceal cchar=∄
 syntax keyword vdmNiceStatement exists conceal cchar=∃
-syntax match vdmNiceStatement "not in set" conceal cchar=∉
-syntax match vdmNiceStatement "not in seq" conceal cchar=∉
-syntax match vdmNiceStatement "not in seq1" conceal cchar=∉
-syntax match vdmNiceStatement "in\s\+se\(t|\(q1\?\)\)" conceal cchar=∈
-" syntax keyword vdmNiceStatement in conceal cchar=∈
-syntax match vdmNiceStatement "not in" conceal cchar=∉
+"syntax match vdmNiceStatement "not in set" conceal cchar=∉
+"syntax match vdmNiceStatement "not in seq" conceal cchar=∉
+"syntax match vdmNiceStatement "not in seq1" conceal cchar=∉
+syntax match vdmNiceStatement "in\s\+se\(t\|\(q1\?\)\)" conceal cchar=∈
+"syntax match vdmNiceStatement "\(not\s\+\)\@<!in\s\+se\(t\|\(q1\?\)\)" conceal cchar=∈
+" syntax match vdmNiceStatement "not\s\+in\s\+se\(t\|\(q1\?\)\)" conceal cchar=∉
+
+
+"syntax keyword vdmNiceStatement in conceal cchar=∈
+"syntax match vdmNiceStatement "not in" conceal cchar=∉
 
 " if !get(g:, 'purescript_unicode_conceal_disable_common', 1)
 " 	syntax match purescriptNiceOperator "\/\@<!\\\ze[[:alpha:][:space:]_([]" conceal cchar=λ
